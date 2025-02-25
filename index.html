@@ -6,13 +6,19 @@
     <title>GitHub Navigation</title>
     <script>
         function navigatePages() {
-            setTimeout(function() {
-                window.location.href = "https://muhamed747263.github.io/testindex/"; // Change this to your second GitHub page
-            }, 30); // Wait 30 seconds before navigating to the second page
+            console.log("⏳ Waiting 30 seconds before navigating to the second page...");
 
+            // ✅ Step 1: Wait 30 seconds, then navigate to the second page
             setTimeout(function() {
+                console.log("🔄 Navigating to the second page...");
+                window.location.href = "https://muhamed747263.github.io/testindex/"; // Change this to your second GitHub page
+            }, 30000); // ✅ Corrected delay (30 seconds)
+
+            // ✅ Step 2: After navigating, wait 5 seconds before going to the third page
+            setTimeout(function() {
+                console.log("🔄 Navigating to the third page...");
                 window.location.href = "https://www.facebook.com/"; // Change this to your third GitHub page
-            }, 35000); // Wait 5 more seconds before navigating to the third page
+            }, 35000); // ✅ Wait 35 seconds in total (30s + 5s)
         }
 
         window.onload = navigatePages;
