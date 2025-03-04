@@ -3,57 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Data Display & Auto Navigation</title>
+    <title>Stored WhatsApp API Response</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        #dataContainer { font-size: 20px; color: #007bff; margin-top: 20px; }
+        #dataContainer { font-size: 20px; color: #007bff; margin-top: 20px; white-space: pre-wrap; }
     </style>
-    <script>
-        console.log("🚀 Page Loaded!");
-
-        // Function to fetch & display stored web data
-        function displayStoredData() {
-            let storedData = localStorage.getItem("webData"); 
-            document.getElementById("dataContainer").innerText = storedData ? storedData : "No data available";
-            console.log(`📂 Displaying stored data: ${storedData}`);
-        }
-
-        // Function to send WhatsApp message
-        async function sendWhatsAppMessage(statusMessage) {
-            const url = 'https://api.whats360.live/api/user/v2/send_message_url';
-            const clientId = 'eyJ1aWQiOiJ0SjhIdHR0RnFVMTQ4ZFJTdzRkaFRSWktBWkdXT3VPNSIsImNsaWVudF9pZCI6InR3c3IifQ==';
-            const mobile = '201063235974';
-            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ0SjhIdHR0RnFVMTQ4ZFJTdzRkaFRSWktBWkdXT3VPNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQwMzU1ODg5fQ.w77oHysWztsnX8wlmFHPgESUlXQCOX2bgfYJMPzW_Hc';
-
-            const apiUrl = `${url}?client_id=${clientId}&mobile=${mobile}&text=${encodeURIComponent(statusMessage)}&token=${token}`;
-
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.text();
-
-                if (response.ok) console.log(`✅ WhatsApp Message Sent: ${statusMessage}`);
-                else console.log(`❌ Failed to send WhatsApp Message: ${data}`);
-            } catch (error) {
-                console.log(`⚠️ Error sending WhatsApp Message: ${error}`);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            displayStoredData(); // Display data from LocalStorage
-            sendWhatsAppMessage("The Navigator in GitHub is Working Normally!"); // Send WhatsApp alert
-        });
-
-        // Auto Redirect After 300 Seconds (5 Minutes)
-        console.log("⏳ Waiting 300 seconds before redirection...");
-        setTimeout(() => {
-            console.log("🔄 Redirecting to: https://xcodingera.com/test11/");
-            window.location.href = "https://xcodingera.com/test11/";
-        }, 300000);
-    </script>
 </head>
 <body>
-    <h1>Stored Web Data & Auto Navigation</h1>
+    <h1>WhatsApp API Response</h1>
     <div id="dataContainer">Loading data...</div>
-    <p>This page will automatically navigate to the next page after 5 minutes.</p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let storedData = localStorage.getItem("whatsappApiResponse"); 
+            document.getElementById("dataContainer").innerText = storedData ? storedData : "No response available";
+            console.log("📂 Retrieved Data:", storedData);
+        });
+    </script>
 </body>
 </html>
