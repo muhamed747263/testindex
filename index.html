@@ -15,9 +15,15 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let storedData = localStorage.getItem("whatsappApiResponse"); 
-            document.getElementById("dataContainer").innerText = storedData ? storedData : "No response available";
-            console.log("📂 Retrieved Data:", storedData);
+            let storedData = localStorage.getItem("whatsappApiResponse");
+            console.log("📂 Retrieved LocalStorage Data:", storedData);
+
+            // Ensure stored data exists before updating the UI
+            if (storedData && storedData !== "undefined") {
+                document.getElementById("dataContainer").innerText = storedData;
+            } else {
+                document.getElementById("dataContainer").innerText = "❌ No response available.";
+            }
         });
     </script>
 </body>
