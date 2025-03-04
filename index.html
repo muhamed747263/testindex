@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stored WhatsApp API Response</title>
+    <title>Stored Notification Data</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
         #dataContainer { font-size: 20px; color: #007bff; margin-top: 20px; white-space: pre-wrap; }
     </style>
 </head>
 <body>
-    <h1>WhatsApp API Response</h1>
+    <h1>Push Notification Data</h1>
     <div id="dataContainer">Loading data...</div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let storedData = localStorage.getItem("whatsappApiResponse");
-            console.log("📂 Retrieved LocalStorage Data:", storedData);
+            let storedData = localStorage.getItem("webData");
+            console.log("📂 Retrieved Notification Data:", storedData);
 
-            // Ensure stored data exists before updating the UI
-            if (storedData && storedData !== "undefined") {
-                document.getElementById("dataContainer").innerText = storedData;
-            } else {
-                document.getElementById("dataContainer").innerText = "❌ No response available.";
-            }
+            document.getElementById("dataContainer").innerText = storedData ? storedData : "❌ No notifications received yet.";
         });
     </script>
 </body>
